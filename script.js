@@ -199,3 +199,90 @@ gsap.from('.final-content', {
     opacity: 0,
     scale: 0.9
 });
+
+// ==========================================
+// GOD-TIER FEATURES
+// ==========================================
+
+// 1. Custom Cursor
+const cursor = document.getElementById("cursor");
+const cursorFollower = document.getElementById("cursor-follower");
+let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+
+window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0 });
+});
+
+gsap.ticker.add(() => {
+    cursorX += (mouseX - cursorX) * 0.15;
+    cursorY += (mouseY - cursorY) * 0.15;
+    gsap.set(cursorFollower, { x: cursorX, y: cursorY });
+});
+
+const interactables = document.querySelectorAll("a, button, .glass-panel, .eng-card, .cta-reserve, .gallery-item");
+interactables.forEach(el => {
+    el.addEventListener("mouseenter", () => document.body.classList.add("hover-active"));
+    el.addEventListener("mouseleave", () => document.body.classList.remove("hover-active"));
+});
+
+// 2. Magnetic Buttons
+const magneticBtns = document.querySelectorAll(".cta-reserve");
+magneticBtns.forEach(btn => {
+    btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(btn, { x: x * 0.4, y: y * 0.4, duration: 0.3, ease: "power2.out" });
+    });
+    btn.addEventListener("mouseleave", () => {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" });
+    });
+});
+
+
+// 6. ThreeJS Telemetry Particles
+const canvas = document.getElementById("webgl-canvas");
+if(canvas) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const particlesGeometry = new THREE.BufferGeometry();
+    const posArray = new Float32Array(800 * 3);
+    for(let i = 0; i < 2400; i++) posArray[i] = (Math.random() - 0.5) * 15;
+    particlesGeometry.setAttribute("position", new THREE.BufferAttribute(posArray, 3));
+    
+    const material = new THREE.PointsMaterial({ size: 0.006, color: 0xffffff, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending });
+    const particlesMesh = new THREE.Points(particlesGeometry, material);
+    scene.add(particlesMesh);
+    camera.position.z = 2;
+
+    let pMouseX = 0, pMouseY = 0;
+    window.addEventListener("mousemove", (event) => {
+        pMouseX = (event.clientX / window.innerWidth) - 0.5;
+        pMouseY = (event.clientY / window.innerHeight) - 0.5;
+    });
+
+    const clock = new THREE.Clock();
+    function animateParticles() {
+        requestAnimationFrame(animateParticles);
+        const elapsedTime = clock.getElapsedTime();
+        particlesMesh.rotation.y = elapsedTime * 0.05;
+        particlesMesh.rotation.x = elapsedTime * 0.02;
+        particlesMesh.position.x += (pMouseX * 0.5 - particlesMesh.position.x) * 0.05;
+        particlesMesh.position.y += (-pMouseY * 0.5 - particlesMesh.position.y) * 0.05;
+        camera.position.y = -window.scrollY * 0.001;
+        renderer.render(scene, camera);
+    }
+    animateParticles();
+
+    window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+}
+
