@@ -11,8 +11,23 @@
     <!-- Barba.js Wrapper -->
     <div data-barba="wrapper">
         
-        <!-- Global Overlays (Outside Barba) -->
+        <!-- Global UI Overlays -->
+        <div id="scroll-progress"></div>
+        <div id="spotlight"></div>
         
+        <!-- Magnetic Navigation -->
+        <div class="nav-toggle" id="navToggle">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="nav-overlay" id="navOverlay">
+            <nav class="nav-links">
+                <a href="#cinematicSeq" class="nav-link">Vision</a>
+                <a href="#engineeringSection" class="nav-link">Engineering</a>
+                <a href="#horizontalWrapper" class="nav-link">Gallery</a>
+                <a href="reserve.html" class="nav-link">Reserve</a>
+            </nav>
+        </div>
+
         <!-- Custom Cursor -->
         <div id="cursor"></div>
         <div id="cursor-follower"></div>
@@ -125,8 +140,15 @@
                 </div>
             </section>
 
-            <!-- === ENGINEERING SECTION === -->
-            <section class="engineering-section">
+            <!-- === ENGINEERING HIGHLIGHTS === -->
+            <section class="engineering-section" id="engineeringSection">
+                
+                <!-- Kinetic Marquee Background -->
+                <div class="marquee-container">
+                    <div class="marquee-text">AERODYNAMICS • PERFORMANCE • PRECISION • </div>
+                    <div class="marquee-text">AERODYNAMICS • PERFORMANCE • PRECISION • </div>
+                </div>
+
                 <div class="engineering-bg">
                     <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=2000&q=80" alt="Engineering Background" class="bg-image">
                     <div class="bg-overlay"></div>
@@ -193,6 +215,9 @@
 
             <!-- === FINAL HERO === -->
             <section class="final-hero">
+                <!-- 3D Wireframe Canvas Container -->
+                <div id="wireframe-canvas-container" class="final-bg"></div>
+
                 <!-- Scroll Masked Video Typography -->
                 <div class="masked-video-text">APEX</div>
                 
