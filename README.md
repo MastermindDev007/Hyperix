@@ -1,93 +1,92 @@
-<div align="center">
-  <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=1200&auto=format&fit=crop" alt="APEX Motors Cover" width="100%" style="border-radius: 12px; margin-bottom: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-  
-  <h1 align="center">🏎️ APEX Motors: The Cinematic Experience</h1>
-  
-  <p align="center">
-    <strong>Engineering Tomorrow. Crafted Without Compromise.</strong>
-    <br>
-    An ultra-premium, scroll-driven storytelling website built for a luxury hypercar brand.
-  </p>
+# APEX MOTORS - NEXT-LEVEL WEB EXPERIENCE
 
-  <p align="center">
-    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-    <img src="https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white" alt="GSAP" />
-    <img src="https://img.shields.io/badge/Lenis-Smooth_Scroll-black?style=for-the-badge" alt="Lenis" />
-  </p>
-</div>
+![APEX Motors Hero](https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=2000&q=80)
+
+Welcome to the **APEX Motors** concept repository. This project is a demonstration of absolute "God-Tier" frontend engineering, pushing the boundaries of what is possible in the browser without relying on heavy reactive frameworks like React or Vue. 
+
+It is designed to win Awwwards, featuring buttery-smooth 60fps animations, WebGL integrations, and seamless page transitions, all wrapped in a hyper-luxury aesthetic.
+
+## 🚀 The Tech Stack
+
+This project achieves its high performance by sticking to the absolute essentials, powered by industry-leading animation libraries:
+
+- **HTML5 & CSS3** (Vanilla, heavily utilizing Custom Properties and Flexbox/Grid)
+- **Vanilla JavaScript** (ES6+)
+- **[GSAP (GreenSock)](https://greensock.com/)** - For complex, timeline-based ScrollTriggers and DOM animations.
+- **[Three.js](https://threejs.org/)** - For WebGL 3D rendering (Interactive Wireframes and 360° Cockpit panoramas).
+- **[Barba.js](https://barba.js.org/)** - For fluid, single-page-application (SPA) style transitions without browser reloading.
+- **[Lenis](https://lenis.studiofreight.com/)** - For mathematically perfect, physics-based smooth scrolling.
 
 ---
 
-## 🌟 The Vision
+## ⚡ God-Tier Features Included
 
-**APEX Motors** isn't just a website; it's a $10M luxury automotive launch experience rendered directly in your browser. Inspired by the commanding digital presence of industry titans like Bugatti, Koenigsegg, and the legendary visual polish of Apple, this single-page application leverages intense, scroll-driven animations to make the user feel like they are actively directing a high-budget cinematic commercial.
+We didn't just build a website; we built a digital experience.
 
-## ✨ God-Tier Features
+### 1. Seamless Navigation (Barba.js)
+Clicking the "Reserve Yours" button transitions the user to the `reserve.html` page without a flash of white or a browser reload. The DOM is seamlessly swapped with a smooth fade, maintaining background audio and cursor state.
 
-*   **🎬 Cinematic Video Scrubbing**: The hero background video’s timeline is intrinsically linked to your scroll position. You control the pace, direction, and flow of the commercial purely through scrolling.
-*   **🧈 Ultra-Smooth Scrolling**: Powered by [Lenis](https://lenis.studiofreight.com/), ensuring every pixel moves with premium, frictionless fluidity.
-*   **📐 Apple-Level Aesthetics**: Deep matte Obsidian Black backgrounds, HDR-inspired gradients, glowing metallic accents, and seamless glassmorphism UI panels.
-*   **⚡ Dynamic Micro-Interactions**: Performance specifications gracefully float into view, featuring live GSAP-powered counters that animate to display raw power metrics (e.g., *1,850 HP*, *480 KM/H*, *1.9s 0-100*).
-*   **🎨 Liquid Morphing Color Reveal**: A sophisticated, scroll-triggered gradient morph that transitions the vehicle's surrounding atmosphere between three distinct finishes: *Obsidian Black*, *Crimson Velocity*, and *Liquid Titanium*.
-*   **🏎️ Immersive Horizontal Showcase**: A pinned horizontal scroll track that delivers dramatic, layered parallax close-ups of the carbon fiber aerodynamics and cockpit details without breaking the vertical scroll momentum.
+### 2. Live WebGL Integrations (Three.js)
+- **3D Wireframe Spin**: At the bottom of the page, interact with a live, draggable 3D wireframe rendering of an APEX hypercar.
+- **360° Cockpit Panorama**: Physically click and drag to look around the luxury interior in full 360 degrees.
 
-## 🛠️ Technology Stack
+### 3. Hyper-Optimized Scroll Hijacking (Lenis + GSAP)
+- **Kinetic Typography**: Background text that skews and speeds up based on the exact velocity of your scroll wheel.
+- **Scroll-Exploded Powertrain**: As you scroll, high-res layers of a V12 engine physically pull apart in 3D space to reveal inner mechanics.
+- **Smart Video Observers**: Custom `IntersectionObservers` instantly pause videos when scrolled out of view to save RAM and maintain 60 FPS.
 
-*   **Markup**: HTML5 structured for maximum semantic clarity and flow.
-*   **Styling**: Pure Vanilla CSS3 utilizing advanced CSS variables, responsive grid/flexbox layouts, and heavily relying on `backdrop-filter` for stunning glassmorphism.
-*   **Core Animation Engine**: [GSAP (GreenSock Animation Platform) 3.12.5](https://greensock.com/gsap/).
-*   **Scroll Triggering**: GSAP `ScrollTrigger` plugin for pinning sections, managing complex timelines, and tying video `currentTime` to scroll depth.
-*   **Smooth Scroll Interpolation**: [Lenis](https://github.com/studio-freight/lenis) for a lightweight, highly performant smooth-scroll wrapper.
+### 4. Bespoke Micro-Interactions
+- **Magnetic Custom Cursor**: A custom glowing cursor that morphs into a frosted ring, magnetically snapping to interactive elements.
+- **Ignite Engine Audio**: A violently shaking CSS animation paired with a thunderous V12 audio clip triggered via the menu.
+- **Live Wind Tunnel**: An HTML5 Canvas particle simulator that reacts to your mouse, deflecting wind around an invisible car.
+- **Color Configurator**: Click swatches to instantly repaint the car and dynamically shift the website's entire ambient CSS variable lighting.
 
-## 🚀 Quick Start
+---
 
-Getting the APEX Motors experience running locally is instantaneous. No complex build tools, transpilers, or bundlers required.
+## 🛠️ Installation & Setup
 
-1.  **Clone the Repository** (or download the files):
-    ```bash
-    git clone https://github.com/your-username/Hyperix.git
-    cd Hyperix
-    ```
-2.  **Launch the Site**:
-    Because this is a pure HTML/CSS/JS frontend masterpiece, you can simply open the `index.html` file in any modern web browser (Chrome, Safari, Edge).
-    
-    *For the absolute best performance (especially regarding video buffering), it is highly recommended to run a local server (like WAMP, XAMPP, or VSCode Live Server):*
-    ```bash
-    npx serve .
-    ```
-    Then navigate to `http://localhost:3000`.
+Because this project utilizes **Barba.js** and **Three.js** texture loading, it **cannot** be run directly via the `file://` protocol due to strict browser CORS policies.
 
-## 📁 Project Architecture
+**You must run this over a local server.**
 
-```text
-Hyperix/
-├── index.html       # The main cinematic DOM structure & layout
-├── style.css        # Premium design system (Glassmorphism, Typography, Colors)
-├── script.js        # The brain: Lenis setup & complex GSAP ScrollTrigger logic
-└── README.md        # You are here!
+### Quick Start (VS Code)
+1. Open the folder in Visual Studio Code.
+2. Install the **Live Server** extension.
+3. Click `Go Live` at the bottom right.
+4. The site will open at `http://127.0.0.1:5500`.
+
+### Quick Start (Node.js)
+```bash
+# Navigate to the directory
+cd Hyperix
+
+# Use npx to spin up a quick server
+npx serve .
 ```
 
-## 🎥 Customizing the Cinematic Experience
+### Quick Start (Python)
+```bash
+# Navigate to the directory
+cd Hyperix
 
-To make this project your own, you must replace the placeholder videos with your own high-quality automotive or product footage.
-
-1.  Open `index.html`.
-2.  Locate the `<video>` tags within `#videoContainer1` and `#videoContainer2`.
-3.  Replace the `src` attribute with the direct URL or local path to your video.
-
-> [!IMPORTANT]
-> **The Secret to Stutter-Free Video Scrubbing**
-> To achieve the buttery-smooth "commercial scrubbing" effect seen on top Awwwards sites, your video file **must** be specially encoded. Standard MP4s compress data between keyframes, causing heavy stuttering when scrolling backwards. 
-> 
-> You must encode your video with an intra-frame only codec or a keyframe interval of 1 (every frame is a keyframe). You can do this easily with FFmpeg:
-> ```bash
-> ffmpeg -i input.mp4 -g 1 -c:v libx264 -preset veryfast output.mp4
-> ```
+# Start a local python server
+python -m http.server 8000
+```
 
 ---
 
-<div align="center">
-  <p>Crafted with 🖤 for the love of Automotive Design, Uncompromising Engineering, and Next-Level Web Animation.</p>
-</div>
+## 📂 File Structure
+
+```text
+/Hyperix
+│
+├── index.html       # The main immersive landing page experience
+├── reserve.html     # The luxury booking confirmation page
+├── style.css        # All custom styling and CSS variables
+├── script.js        # The brain: GSAP, Three.js, Observers, and DOM logic
+└── README.md        # This documentation file
+```
+
+---
+
+*Designed and Engineered for the Future of the Web.*
