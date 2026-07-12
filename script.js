@@ -546,3 +546,238 @@ if(wireContainer && window.THREE) {
     });
 }
 
+
+// ==========================================
+// APEX 2.0 EXPANSION JS
+// ==========================================
+
+// 1. Cinematic Video Pre-Loader
+window.addEventListener("load", () => {
+    const preloader = document.getElementById("loader");
+    if(preloader) {
+        setTimeout(() => {
+            gsap.to(preloader, { opacity: 0, duration: 1, ease: "power2.inOut", onComplete: () => {
+                preloader.style.display = "none";
+            }});
+            // Trigger Hero animations after preloader
+            gsap.from(".hero-title", { y: 100, opacity: 0, duration: 1.5, delay: 0.5, ease: "power4.out" });
+            gsap.from(".hero-subtitle", { y: 50, opacity: 0, duration: 1, delay: 1, ease: "power4.out" });
+        }, 2500); // Wait 2.5 seconds for cinematic effect
+    }
+});
+
+// 2. The "Ignite Engine" Audio Experience
+const igniteBtn = document.getElementById("igniteEngineBtn");
+if(igniteBtn) {
+    // Create audio element dynamically (using a placeholder engine sound from a public sound library)
+    const engineAudio = new Audio("https://cdn.freesound.org/previews/235/235555_4044391-lq.mp3"); // Replace with high quality asset in production
+    
+    igniteBtn.addEventListener("click", () => {
+        engineAudio.play().catch(e => console.log("Audio play failed:", e));
+        document.body.classList.add("shake-active");
+        gsap.to(".bg-overlay", { backgroundColor: "rgba(255, 0, 0, 0.2)", duration: 0.1, yoyo: true, repeat: 20 });
+        
+        setTimeout(() => {
+            document.body.classList.remove("shake-active");
+        }, 2000); // Shake for 2 seconds
+        
+        // Close menu automatically after igniting
+        if(window.navToggle && window.navOverlay) {
+            window.navToggle.classList.remove("open");
+            window.navOverlay.classList.remove("active");
+        }
+    });
+}
+
+// 3. The Interactive Color Configurator
+const swatches = document.querySelectorAll(".color-swatch");
+const configImg = document.getElementById("configCarImg");
+if(swatches.length > 0 && configImg) {
+    const carImages = {
+        "obsidian": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80",
+        "crimson": "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1200&q=80",
+        "titanium": "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=80"
+    };
+    
+    swatches.forEach(swatch => {
+        swatch.addEventListener("click", () => {
+            // Remove active class
+            swatches.forEach(s => s.classList.remove("active"));
+            swatch.classList.add("active");
+            
+            // Fade out, swap, fade in
+            gsap.to(configImg, { opacity: 0, duration: 0.3, onComplete: () => {
+                configImg.src = carImages[swatch.getAttribute("data-color")];
+                document.documentElement.style.setProperty("--bg-color", swatch.getAttribute("data-hex"));
+                gsap.to(configImg, { opacity: 1, duration: 0.5 });
+            }});
+        });
+    });
+}
+
+// 4. "Wind Tunnel" Aerodynamics Simulator
+const tunnelCanvas = document.getElementById("windTunnelCanvas");
+if(tunnelCanvas) {
+    const ctx = tunnelCanvas.getContext("2d");
+    tunnelCanvas.width = tunnelCanvas.clientWidth;
+    tunnelCanvas.height = tunnelCanvas.clientHeight;
+    
+    let particles = [];
+    let mouse = { x: tunnelCanvas.width / 2, y: tunnelCanvas.height / 2 };
+    
+    window.addEventListener("mousemove", (e) => {
+        const rect = tunnelCanvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+    
+    class Particle {
+        constructor() {
+            this.x = 0;
+            this.y = Math.random() * tunnelCanvas.height;
+            this.speed = Math.random() * 5 + 5;
+            this.size = Math.random() * 2;
+        }
+        update() {
+            this.x += this.speed;
+            
+            // Deflect based on mouse position (simulating car body in center)
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if(distance < 200) {
+                // Push away
+                this.y -= (dy / distance) * 2;
+                this.speed = 10;
+            } else {
+                this.speed = Math.random() * 5 + 5;
+            }
+            
+            if(this.x > tunnelCanvas.width) {
+                this.x = 0;
+                this.y = Math.random() * tunnelCanvas.height;
+            }
+        }
+        draw() {
+            ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+            ctx.fillRect(this.x, this.y, this.speed * 2, this.size); // draw line
+        }
+    }
+    
+    for(let i=0; i<100; i++) particles.push(new Particle());
+    
+    function animateWind() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Trails effect
+        ctx.fillRect(0, 0, tunnelCanvas.width, tunnelCanvas.height);
+        
+        // Draw car silhouette placeholder
+        ctx.fillStyle = "rgba(20, 20, 25, 0.8)";
+        ctx.beginPath();
+        ctx.ellipse(tunnelCanvas.width/2, tunnelCanvas.height/2 + 50, 300, 80, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animateWind);
+    }
+    
+    // Only animate when in view
+    const observer = new IntersectionObserver((entries) => {
+        if(entries[0].isIntersecting) animateWind();
+    });
+    observer.observe(tunnelCanvas);
+}
+
+// 5. "The Engine" Scroll-Exploded View
+const explodedEngine = document.getElementById("explodedEngine");
+if(explodedEngine) {
+    const layer2 = document.querySelector(".layer-2");
+    const layer3 = document.querySelector(".layer-3");
+    
+    const explodeSeq = gsap.timeline({
+        scrollTrigger: {
+            trigger: explodedEngine,
+            start: "top center",
+            end: "bottom bottom",
+            scrub: true,
+            pin: true
+        }
+    });
+    
+    explodeSeq.to(layer2, { y: -150, opacity: 1, duration: 1 })
+              .to(layer3, { y: -300, opacity: 1, duration: 1 }, "-=0.5");
+}
+
+// 6. 360° Cockpit Panorama
+const cockpitContainer = document.getElementById("cockpitCanvasContainer");
+if(cockpitContainer && window.THREE) {
+    const scene3 = new THREE.Scene();
+    const camera3 = new THREE.PerspectiveCamera(75, cockpitContainer.clientWidth / cockpitContainer.clientHeight, 0.1, 1000);
+    const renderer3 = new THREE.WebGLRenderer({ antialias: true });
+    
+    renderer3.setSize(cockpitContainer.clientWidth, cockpitContainer.clientHeight);
+    cockpitContainer.appendChild(renderer3.domElement);
+    
+    const geometry3 = new THREE.SphereGeometry(500, 60, 40);
+    // invert geometry to look from inside
+    geometry3.scale(-1, 1, 1);
+    
+    // Load a realistic car interior panorama (using an unsplash HD image)
+    const textureLoader = new THREE.TextureLoader();
+    textureLoader.load("https://images.unsplash.com/photo-1543465070-5b584b4234ef?auto=format&fit=crop&w=3000&q=80", (texture) => {
+        const material3 = new THREE.MeshBasicMaterial({ map: texture });
+        const sphere = new THREE.Mesh(geometry3, material3);
+        scene3.add(sphere);
+    });
+    
+    camera3.position.set(0, 0, 0.1);
+    
+    let isDragging3 = false;
+    let lon = 0, lat = 0;
+    let phi = 0, theta = 0;
+    let startX = 0, startY = 0;
+    
+    cockpitContainer.addEventListener("mousedown", (e) => {
+        isDragging3 = true;
+        startX = e.clientX;
+        startY = e.clientY;
+    });
+    
+    window.addEventListener("mousemove", (e) => {
+        if(isDragging3) {
+            lon += (startX - e.clientX) * 0.1;
+            lat += (e.clientY - startY) * 0.1;
+            startX = e.clientX;
+            startY = e.clientY;
+            lat = Math.max(-85, Math.min(85, lat));
+        }
+    });
+    
+    window.addEventListener("mouseup", () => { isDragging3 = false; });
+    
+    function animateCockpit() {
+        requestAnimationFrame(animateCockpit);
+        
+        phi = THREE.MathUtils.degToRad(90 - lat);
+        theta = THREE.MathUtils.degToRad(lon);
+        
+        const target = new THREE.Vector3();
+        target.x = 500 * Math.sin(phi) * Math.cos(theta);
+        target.y = 500 * Math.cos(phi);
+        target.z = 500 * Math.sin(phi) * Math.sin(theta);
+        
+        camera3.lookAt(target);
+        renderer3.render(scene3, camera3);
+    }
+    
+    // Start animation loop when texture is loading
+    animateCockpit();
+    
+    window.addEventListener("resize", () => {
+        if(cockpitContainer.clientWidth === 0) return; // Prevent 0 division when offscreen
+        camera3.aspect = cockpitContainer.clientWidth / cockpitContainer.clientHeight;
+        camera3.updateProjectionMatrix();
+        renderer3.setSize(cockpitContainer.clientWidth, cockpitContainer.clientHeight);
+    });
+}
+

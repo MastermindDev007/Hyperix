@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,15 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Barba.js Wrapper -->
     <div data-barba="wrapper">
-        
+
         <!-- Global UI Overlays -->
         <div id="scroll-progress"></div>
         <div id="spotlight"></div>
-        
+
         <!-- Magnetic Navigation -->
         <div class="nav-toggle" id="navToggle">
             <span></span><span></span><span></span>
@@ -34,200 +36,226 @@
 
         <main data-barba="container" data-barba-namespace="home">
 
-    <!-- Premium Loader -->
-    <div class="loader" id="loader">
-        <div class="loader-logo">APEX</div>
-    </div>
+            <!-- Premium Loader -->
+            <div class="loader" id="loader">
+                <div class="loader-logo">APEX</div>
+            </div>
 
-    <!-- Pinned Video Background 1 (With high-end image poster) -->
-    <div class="video-container" id="videoContainer1">
-        <video id="heroVideo" poster="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=2000&q=80" src="https://assets.mixkit.co/videos/preview/mixkit-supercar-driving-in-the-mountains-43034-large.mp4" muted playsinline></video>
-        <div class="overlay-gradient"></div>
-    </div>
+            <!-- Pinned Video Background 1 (With high-end image poster) -->
+            <div class="video-container" id="videoContainer1">
+                <video id="heroVideo"
+                    poster="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=2000&q=80"
+                    src="https://assets.mixkit.co/videos/preview/mixkit-supercar-driving-in-the-mountains-43034-large.mp4"
+                    muted playsinline></video>
+                <div class="overlay-gradient"></div>
+            </div>
 
-    <!-- Pinned Video Background 2 (With high-end image poster) -->
-    <div class="video-container-2" id="videoContainer2">
-        <video id="heroVideo2" poster="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=2000&q=80" src="https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-fast-through-a-dark-tunnel-41710-large.mp4" muted playsinline loop></video>
-        <div class="morph-overlay" id="morphOverlay"></div>
-    </div>
+            <!-- Pinned Video Background 2 (With high-end image poster) -->
+            <div class="video-container-2" id="videoContainer2">
+                <video id="heroVideo2"
+                    poster="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=2000&q=80"
+                    src="https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-fast-through-a-dark-tunnel-41710-large.mp4"
+                    muted playsinline loop></video>
+                <div class="morph-overlay" id="morphOverlay"></div>
+            </div>
 
-    <!-- MAIN SCROLL CONTENT -->
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
+            <!-- MAIN SCROLL CONTENT -->
+            <main id="smooth-wrapper">
+                <div id="smooth-content">
 
-            <!-- === HERO EXPERIENCE === -->
-            <section class="hero-section">
-                <div class="hero-content">
-                    <div class="hero-title-wrapper">
-                        <h1 class="hero-title">APEX MOTORS</h1>
-                    </div>
-                    <div class="hero-subtitle-wrapper">
-                        <p class="hero-subtitle">Engineering Tomorrow.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- === SCROLL-DRIVEN CINEMATIC SEQUENCE === -->
-            <section class="cinematic-sequence" id="cinematicSeq">
-                <!-- Floating interface elements -->
-                <div class="floating-specs">
-                    <div class="spec-item spec-top-left" id="spec1">
-                        <span class="spec-label">Top Speed</span>
-                        <span class="spec-value">480 KM/H</span>
-                    </div>
-                    <div class="spec-item spec-bottom-right" id="spec2">
-                        <span class="spec-label">Power</span>
-                        <span class="spec-value">1,850 HP</span>
-                    </div>
-                    <div class="spec-item spec-middle-left" id="spec3">
-                        <span class="spec-label">0-100 KM/H</span>
-                        <span class="spec-value">1.9S</span>
-                    </div>
-                    <div class="spec-item spec-bottom-left" id="spec4">
-                        <span class="spec-label">Chassis</span>
-                        <span class="spec-value">Carbon Monocoque</span>
-                    </div>
-                    <div class="spec-item spec-top-right" id="spec5">
-                        <span class="spec-label">Aero</span>
-                        <span class="spec-value">Active</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- === PERFORMANCE SHOWCASE === -->
-            <section class="performance-showcase">
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-number"><span class="counter" data-target="480">0</span> <span class="stat-unit">km/h</span></div>
-                        <div class="stat-desc">Top Speed</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number"><span class="counter" data-target="1850">0</span> <span class="stat-unit">HP</span></div>
-                        <div class="stat-desc">Total Output</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number"><span class="counter" data-target="1.9" data-decimal="true">0</span> <span class="stat-unit">s</span></div>
-                        <div class="stat-desc">0-100 km/h</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number"><span class="counter" data-target="1200">0</span> <span class="stat-unit">kg</span></div>
-                        <div class="stat-desc">Dry Weight</div>
-                    </div>
-                </div>
-                <!-- Light streaks animation element -->
-                <div class="light-streaks">
-                    <div class="streak streak-1"></div>
-                    <div class="streak streak-2"></div>
-                    <div class="streak streak-3"></div>
-                </div>
-            </section>
-
-            <!-- === CINEMATIC COLOR REVEAL === -->
-            <section class="color-reveal" id="colorReveal">
-                <div class="colors-container">
-                    <div class="color-pane" id="color1">
-                        <h2>Obsidian Black</h2>
-                        <p class="color-desc">Deep, unyielding darkness absorbing all light.</p>
-                    </div>
-                    <div class="color-pane" id="color2">
-                        <h2>Crimson Velocity</h2>
-                        <p class="color-desc">Visceral red inspired by extreme heat and energy.</p>
-                    </div>
-                    <div class="color-pane" id="color3">
-                        <h2>Liquid Titanium</h2>
-                        <p class="color-desc">A molten metallic finish exhibiting raw engineering.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- === ENGINEERING HIGHLIGHTS === -->
-            <section class="engineering-section" id="engineeringSection">
-                
-                <!-- Kinetic Marquee Background -->
-                <div class="marquee-container">
-                    <div class="marquee-text">AERODYNAMICS • PERFORMANCE • PRECISION • </div>
-                    <div class="marquee-text">AERODYNAMICS • PERFORMANCE • PRECISION • </div>
-                </div>
-
-                <div class="engineering-bg">
-                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=2000&q=80" alt="Engineering Background" class="bg-image">
-                    <div class="bg-overlay"></div>
-                </div>
-                <div class="engineering-header">
-                    <h2>Uncompromising Engineering</h2>
-                </div>
-                <div class="cards-container">
-                    <div class="eng-card glass-panel">
-                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80" alt="Carbon Fiber" class="card-img">
-                        <div class="card-content">
-                            <div class="card-icon">01</div>
-                            <h3>Carbon Fiber Monocoque</h3>
-                            <p>Aerospace-grade rigidity with minimal mass footprint.</p>
+                    <!-- === HERO EXPERIENCE === -->
+                    <section class="hero-section">
+                        <div class="hero-content">
+                            <div class="hero-title-wrapper">
+                                <h1 class="hero-title">APEX MOTORS</h1>
+                            </div>
+                            <div class="hero-subtitle-wrapper">
+                                <p class="hero-subtitle">Engineering Tomorrow.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="eng-card glass-panel">
-                        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800&q=80" alt="Aerodynamics" class="card-img">
-                        <div class="card-content">
-                            <div class="card-icon">02</div>
-                            <h3>Active Aerodynamics</h3>
-                            <p>Dynamic downforce adapting in real-time to your driving.</p>
-                        </div>
-                    </div>
-                    <div class="eng-card glass-panel">
-                        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=800&q=80" alt="AI Performance" class="card-img">
-                        <div class="card-content">
-                            <div class="card-icon">03</div>
-                            <h3>AI-Assisted Performance</h3>
-                            <p>Predictive telemetry optimization for track dominance.</p>
-                        </div>
-                    </div>
-                    <div class="eng-card glass-panel">
-                        <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80" alt="Torque Vectoring" class="card-img">
-                        <div class="card-content">
-                            <div class="card-icon">04</div>
-                            <h3>Electric Torque Vectoring</h3>
-                            <p>Instantaneous power distribution to each wheel.</p>
-                        </div>
-                    </div>
-                    <div class="eng-card glass-panel">
-                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80" alt="Suspension" class="card-img">
-                        <div class="card-content">
-                            <div class="card-icon">05</div>
-                            <h3>Adaptive Suspension</h3>
-                            <p>Magnetic damping for ultimate comfort and handling.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                    </section>
 
-            <!-- === HORIZONTAL SHOWCASE === -->
-            <section class="horizontal-showcase-wrapper" id="horizontalWrapper">
-                <div class="horizontal-showcase">
-                    <div class="gallery-track">
-                        <div class="gallery-item glass-panel"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=1600&auto=format&fit=crop" alt="Details 1"></div>
-                        <div class="gallery-item glass-panel"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1600&auto=format&fit=crop" alt="Details 2"></div>
-                        <div class="gallery-item glass-panel"><img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1600&auto=format&fit=crop" alt="Details 3"></div>
-                        <div class="gallery-item glass-panel"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=1600&auto=format&fit=crop" alt="Details 4"></div>
-                        <div class="gallery-item glass-panel"><img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=1600&auto=format&fit=crop" alt="Details 5"></div>
-                    </div>
-                </div>
-            </section>
+                    <!-- === SCROLL-DRIVEN CINEMATIC SEQUENCE === -->
+                    <section class="cinematic-sequence" id="cinematicSeq">
+                        <!-- Floating interface elements -->
+                        <div class="floating-specs">
+                            <div class="spec-item spec-top-left" id="spec1">
+                                <span class="spec-label">Top Speed</span>
+                                <span class="spec-value">480 KM/H</span>
+                            </div>
+                            <div class="spec-item spec-bottom-right" id="spec2">
+                                <span class="spec-label">Power</span>
+                                <span class="spec-value">1,850 HP</span>
+                            </div>
+                            <div class="spec-item spec-middle-left" id="spec3">
+                                <span class="spec-label">0-100 KM/H</span>
+                                <span class="spec-value">1.9S</span>
+                            </div>
+                            <div class="spec-item spec-bottom-left" id="spec4">
+                                <span class="spec-label">Chassis</span>
+                                <span class="spec-value">Carbon Monocoque</span>
+                            </div>
+                            <div class="spec-item spec-top-right" id="spec5">
+                                <span class="spec-label">Aero</span>
+                                <span class="spec-value">Active</span>
+                            </div>
+                        </div>
+                    </section>
 
-            <!-- === FINAL HERO === -->
-            <section class="final-hero">
-                <!-- 3D Wireframe Canvas Container -->
-                <div id="wireframe-canvas-container" class="final-bg"></div>
+                    <!-- === PERFORMANCE SHOWCASE === -->
+                    <section class="performance-showcase">
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-number"><span class="counter" data-target="480">0</span> <span
+                                        class="stat-unit">km/h</span></div>
+                                <div class="stat-desc">Top Speed</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number"><span class="counter" data-target="1850">0</span> <span
+                                        class="stat-unit">HP</span></div>
+                                <div class="stat-desc">Total Output</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number"><span class="counter" data-target="1.9"
+                                        data-decimal="true">0</span> <span class="stat-unit">s</span></div>
+                                <div class="stat-desc">0-100 km/h</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number"><span class="counter" data-target="1200">0</span> <span
+                                        class="stat-unit">kg</span></div>
+                                <div class="stat-desc">Dry Weight</div>
+                            </div>
+                        </div>
+                        <!-- Light streaks animation element -->
+                        <div class="light-streaks">
+                            <div class="streak streak-1"></div>
+                            <div class="streak streak-2"></div>
+                            <div class="streak streak-3"></div>
+                        </div>
+                    </section>
 
-                <!-- Scroll Masked Video Typography -->
-                <div class="masked-video-text">APEX</div>
-                
-                <div class="final-content">
-                    <h2>THE FUTURE IS HERE</h2>
-                    <a href="reserve.html" class="cta-reserve">Reserve Yours</a>
-                </div>
-            </section>
+                    <!-- === CINEMATIC COLOR REVEAL === -->
+                    <section class="color-reveal" id="colorReveal">
+                        <div class="colors-container">
+                            <div class="color-pane" id="color1">
+                                <h2>Obsidian Black</h2>
+                                <p class="color-desc">Deep, unyielding darkness absorbing all light.</p>
+                            </div>
+                            <div class="color-pane" id="color2">
+                                <h2>Crimson Velocity</h2>
+                                <p class="color-desc">Visceral red inspired by extreme heat and energy.</p>
+                            </div>
+                            <div class="color-pane" id="color3">
+                                <h2>Liquid Titanium</h2>
+                                <p class="color-desc">A molten metallic finish exhibiting raw engineering.</p>
+                            </div>
+                        </div>
+                    </section>
 
-        </main> <!-- End Barba Container -->
+                    <!-- === ENGINEERING HIGHLIGHTS === -->
+                    <section class="engineering-section" id="engineeringSection">
+
+                        <!-- Kinetic Marquee Background -->
+                        <div class="marquee-container">
+                            <div class="marquee-text">AERODYNAMICS • PERFORMANCE • PRECISION • </div>
+                            <div class="marquee-text">AERODYNAMICS • PERFORMANCE • PRECISION • </div>
+                        </div>
+
+                        <div class="engineering-bg">
+                            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=2000&q=80"
+                                alt="Engineering Background" class="bg-image">
+                            <div class="bg-overlay"></div>
+                        </div>
+                        <div class="engineering-header">
+                            <h2>Uncompromising Engineering</h2>
+                        </div>
+                        <div class="cards-container">
+                            <div class="eng-card glass-panel">
+                                <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80"
+                                    alt="Carbon Fiber" class="card-img">
+                                <div class="card-content">
+                                    <div class="card-icon">01</div>
+                                    <h3>Carbon Fiber Monocoque</h3>
+                                    <p>Aerospace-grade rigidity with minimal mass footprint.</p>
+                                </div>
+                            </div>
+                            <div class="eng-card glass-panel">
+                                <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800&q=80"
+                                    alt="Aerodynamics" class="card-img">
+                                <div class="card-content">
+                                    <div class="card-icon">02</div>
+                                    <h3>Active Aerodynamics</h3>
+                                    <p>Dynamic downforce adapting in real-time to your driving.</p>
+                                </div>
+                            </div>
+                            <div class="eng-card glass-panel">
+                                <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=800&q=80"
+                                    alt="AI Performance" class="card-img">
+                                <div class="card-content">
+                                    <div class="card-icon">03</div>
+                                    <h3>AI-Assisted Performance</h3>
+                                    <p>Predictive telemetry optimization for track dominance.</p>
+                                </div>
+                            </div>
+                            <div class="eng-card glass-panel">
+                                <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80"
+                                    alt="Torque Vectoring" class="card-img">
+                                <div class="card-content">
+                                    <div class="card-icon">04</div>
+                                    <h3>Electric Torque Vectoring</h3>
+                                    <p>Instantaneous power distribution to each wheel.</p>
+                                </div>
+                            </div>
+                            <div class="eng-card glass-panel">
+                                <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80"
+                                    alt="Suspension" class="card-img">
+                                <div class="card-content">
+                                    <div class="card-icon">05</div>
+                                    <h3>Adaptive Suspension</h3>
+                                    <p>Magnetic damping for ultimate comfort and handling.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- === HORIZONTAL SHOWCASE === -->
+                    <section class="horizontal-showcase-wrapper" id="horizontalWrapper">
+                        <div class="horizontal-showcase">
+                            <div class="gallery-track">
+                                <div class="gallery-item glass-panel"><img
+                                        src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=1600&auto=format&fit=crop"
+                                        alt="Details 1"></div>
+                                <div class="gallery-item glass-panel"><img
+                                        src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1600&auto=format&fit=crop"
+                                        alt="Details 2"></div>
+                                <div class="gallery-item glass-panel"><img
+                                        src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1600&auto=format&fit=crop"
+                                        alt="Details 3"></div>
+                                <div class="gallery-item glass-panel"><img
+                                        src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=1600&auto=format&fit=crop"
+                                        alt="Details 4"></div>
+                                <div class="gallery-item glass-panel"><img
+                                        src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=1600&auto=format&fit=crop"
+                                        alt="Details 5"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- === FINAL HERO === -->
+                    <section class="final-hero">
+                        <!-- 3D Wireframe Canvas Container -->
+                        <div id="wireframe-canvas-container" class="final-bg"></div>
+
+                        <!-- Scroll Masked Video Typography -->
+                        <div class="masked-video-text">APEX</div>
+
+                        <div class="final-content">
+                            <h2>THE FUTURE IS HERE</h2>
+                            <a href="reserve.html" class="cta-reserve">Reserve Yours</a>
+                        </div>
+                    </section>
+
+            </main> <!-- End Barba Container -->
     </div> <!-- End Barba Wrapper -->
 
     <!-- Scripts -->
