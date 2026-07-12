@@ -52,20 +52,22 @@ gsap.to('.hero-subtitle', {
 const video1 = document.getElementById('heroVideo');
 
 // Make sure video is loaded before getting duration
-video1.addEventListener('loadedmetadata', function() {
-    // Only scrub if the video has duration
-    if(video1.duration) {
-        gsap.to(video1, {
-            scrollTrigger: {
-                trigger: "#cinematicSeq",
-                start: "top top",
-                end: "bottom bottom",
-                scrub: true,
-            },
-            currentTime: video1.duration - 0.1 // avoid going past end
-        });
-    }
-});
+if (video1) {
+    video1.addEventListener('loadedmetadata', function() {
+        // Only scrub if the video has duration
+        if(video1.duration) {
+            gsap.to(video1, {
+                scrollTrigger: {
+                    trigger: "#cinematicSeq",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true,
+                },
+                currentTime: video1.duration - 0.1 // avoid going past end
+            });
+        }
+    });
+}
 
 // Floating Specs appearing one by one
 const specs = gsap.utils.toArray('.spec-item');
@@ -129,47 +131,51 @@ ScrollTrigger.create({
 const colorPanes = gsap.utils.toArray('.color-pane');
 const morphOverlay = document.getElementById('morphOverlay');
 
-const colorSeq = gsap.timeline({
-    scrollTrigger: {
-        trigger: '#colorReveal',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true,
-    }
-});
+if (morphOverlay && colorPanes.length > 0) {
+    const colorSeq = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#colorReveal',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+        }
+    });
 
-// 1. Obsidian Black (Default)
-colorSeq.to(colorPanes[0], { opacity: 1, duration: 1 })
-        .to(morphOverlay, { backgroundColor: 'rgba(10,10,12,0.85)', duration: 1 }, "<")
-        .to(colorPanes[0], { opacity: 0, duration: 1 })
-// 2. Crimson Velocity
-        .to(colorPanes[1], { opacity: 1, duration: 1 })
-        .to(morphOverlay, { backgroundColor: 'rgba(122,0,16,0.65)', duration: 1 }, "<")
-        .to(colorPanes[1], { opacity: 0, duration: 1 })
-// 3. Liquid Titanium
-        .to(colorPanes[2], { opacity: 1, duration: 1 })
-        .to(morphOverlay, { backgroundColor: 'rgba(106,108,117,0.7)', duration: 1 }, "<");
+    // 1. Obsidian Black (Default)
+    colorSeq.to(colorPanes[0], { opacity: 1, duration: 1 })
+            .to(morphOverlay, { backgroundColor: 'rgba(10,10,12,0.85)', duration: 1 }, "<")
+            .to(colorPanes[0], { opacity: 0, duration: 1 })
+    // 2. Crimson Velocity
+            .to(colorPanes[1], { opacity: 1, duration: 1 })
+            .to(morphOverlay, { backgroundColor: 'rgba(122,0,16,0.65)', duration: 1 }, "<")
+            .to(colorPanes[1], { opacity: 0, duration: 1 })
+    // 3. Liquid Titanium
+            .to(colorPanes[2], { opacity: 1, duration: 1 })
+            .to(morphOverlay, { backgroundColor: 'rgba(106,108,117,0.7)', duration: 1 }, "<");
+}
 
 
 // Horizontal Showcase
 // We wait for window load so images have dimensions
 window.addEventListener('load', () => {
     const horizontalTrack = document.querySelector('.gallery-track');
-    // Calculate the amount to scroll left based on the width of track minus viewport
-    const horizontalScrollLength = horizontalTrack.scrollWidth - window.innerWidth;
+    if (horizontalTrack) {
+        // Calculate the amount to scroll left based on the width of track minus viewport
+        const horizontalScrollLength = horizontalTrack.scrollWidth - window.innerWidth;
 
-    gsap.to(horizontalTrack, {
-        x: () => -horizontalScrollLength,
-        ease: "none",
-        scrollTrigger: {
-            trigger: "#horizontalWrapper",
-            start: "top top",
-            end: () => "+=" + horizontalScrollLength,
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true // recalculates width on resize
-        }
-    });
+        gsap.to(horizontalTrack, {
+            x: () => -horizontalScrollLength,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#horizontalWrapper",
+                start: "top top",
+                end: () => "+=" + horizontalScrollLength,
+                pin: true,
+                scrub: 1,
+                invalidateOnRefresh: true // recalculates width on resize
+            }
+        });
+    }
 });
 
 // Engineering Cards Parallax
@@ -283,6 +289,64 @@ if(canvas) {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+}
+
+
+// ==========================================
+// 10-POINT ULTIMATE GOD-TIER FEATURES
+// ==========================================
+
+// 1. Time-of-Day UI
+const currentHour = new Date().getHours();
+if(currentHour >= 6 && currentHour <= 18) {
+    // Daytime
+    document.documentElement.style.setProperty("--bg-color", "#1a1a24");
+}
+
+
+
+// 3. Velocity Skewing
+const skewSetter = gsap.quickSetter("main", "skewY", "deg");
+gsap.ticker.add(() => {
+    let skewAmount = scrollVelocity * 0.1;
+    skewSetter(Math.min(skewAmount, 5));
+});
+
+// 4. Glass Reflections (Mouse tracking)
+document.addEventListener("mousemove", (e) => {
+    document.querySelectorAll(".glass-panel").forEach(panel => {
+        const rect = panel.getBoundingClientRect();
+        const mx = ((e.clientX - rect.left) / rect.width) * 100;
+        const my = ((e.clientY - rect.top) / rect.height) * 100;
+        panel.style.setProperty("--mx", `${mx}%`);
+        panel.style.setProperty("--my", `${my}%`);
+    });
+});
+
+// 5. Haptic Feedback
+document.querySelectorAll(".cta-reserve").forEach(btn => {
+    btn.addEventListener("mouseenter", () => {
+        if("vibrate" in navigator) navigator.vibrate([100, 50, 100]);
+    });
+});
+
+
+
+
+
+// 8. Barba.js Transitions
+if(window.barba) {
+    barba.init({
+        transitions: [{
+            name: "opacity-transition",
+            leave(data) {
+                return gsap.to(data.current.container, { opacity: 0, duration: 0.5 });
+            },
+            enter(data) {
+                return gsap.from(data.next.container, { opacity: 0, duration: 0.5 });
+            }
+        }]
     });
 }
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve APEX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <div data-barba="wrapper">
+        <main data-barba="container" data-barba-namespace="reserve" class="reserve-main">
+            <!-- Background Image -->
+            <div class="reserve-bg">
+                <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=2000&q=80" alt="Supercar Abstract">
+                <div class="reserve-overlay"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="reserve-content">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <h1 class="reserve-title">RESERVATION SECURED</h1>
+                <p class="reserve-text">Your allocation for the APEX Hypercar has been confirmed. A dedicated concierge will contact you within 24 hours.</p>
+                <div class="reservation-id">ID: APX-7749-V2</div>
+                
+                <a href="index.html" class="cta-reserve return-btn">Return to Base</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="script.js"></script>
+</body>
+</html>
